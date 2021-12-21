@@ -48,6 +48,11 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/suhang98/Hadoop-installer@main/insta
 
 
 
+<img src="https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/11.jpeg" alt="12" style="zoom: 25%;" />
+
+
+
+
 ## 注意事项
 
 如果使用云服务器搭建请注意记得在防火墙放行常用端口 ssh:22 mysql数据库:3306 hive数据仓库:10000 spark数据仓库:10001 hadoop常用端口等
