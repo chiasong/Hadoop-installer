@@ -35,13 +35,7 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/suhang98/Hadoop-installer@main/insta
 2. 为了给hadoop环境做初始化需要输入你的root密码,然后稍加等待
 3. And Engjoy!
 
-   ![WechatIMG9 1](/Users/su/Desktop/WechatIMG9 1.jpeg)
 
-<img src="suhang.work/pic/WechatIMG10.jpeg" alt="WechatIMG10" style="zoom:67%;" />
-
-
-
-## <img src="suhang.work/pic/WechatIMG11.jpeg" alt="WechatIMG11" style="zoom: 50%;" />
 
 ## 注意事项
 
