@@ -37,15 +37,11 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/suhang98/Hadoop-installer@main/insta
 
    ![WechatIMG9 1](/Users/su/Desktop/WechatIMG9 1.jpeg)
 
-<img src="/Users/su/Desktop/WechatIMG10.jpeg" alt="WechatIMG10" style="zoom:67%;" />
+<img src="suhang.work/pic/WechatIMG10.jpeg" alt="WechatIMG10" style="zoom:67%;" />
 
 
 
-![WechatIMG9 1](/Users/su/Desktop/WechatIMG9 1.jpeg
-
-
-
-## <img src="/Users/su/Desktop/WechatIMG11.jpeg" alt="WechatIMG11" style="zoom: 50%;" />
+## <img src="suhang.work/pic/WechatIMG11.jpeg" alt="WechatIMG11" style="zoom: 50%;" />
 
 ## 注意事项
 
