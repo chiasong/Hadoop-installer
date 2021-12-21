@@ -37,7 +37,7 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/suhang98/Hadoop-installer@main/insta
 
 <img src="https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/9.jpeg" alt="9" style="zoom:67%;" />
 
-<img src="https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/10.jpeg" alt="10" style="zoom:67%;" />
+<img src="https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/10.jpeg" alt="10" style="zoom:40%;" />
 
 
 
