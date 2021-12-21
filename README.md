@@ -35,6 +35,10 @@ bash <(curl -Ls https://cdn.jsdelivr.net/gh/suhang98/Hadoop-installer@main/insta
 2. 为了给hadoop环境做初始化需要输入你的root密码,然后稍加等待
 3. And Engjoy!
 
+https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/9.jpeg
+https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/10.jpeg
+https://github.com/suhang98/Hadoop-installer/blob/main/README.assets/11.jpeg
+
 
 
 ## 注意事项
