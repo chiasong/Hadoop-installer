@@ -2,7 +2,8 @@
 Hadoop集群单节点版的一键搭建脚本 仅用于练习sql
 
 ## 说明
-1. 仅支持 Centos 7 目前测试过腾讯云的 Centos7.6 和 宝塔面板应用镜像(也是Centos7.6)
+1. 仅支持 Centos 7 
+2. 目前测试过腾讯云的 Centos7.6 、宝塔面板应用镜像(也是Centos7.6)、阿里云的Centos7
 
 2. hadoop 搭建脚本
 
