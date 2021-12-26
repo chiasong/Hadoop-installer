@@ -44,10 +44,17 @@ install_ready() {
 	hostname node1
 	sed -i '$a\node1' /etc/hostname
 	sed -i '1d' /etc/hostname
-	echo "正在修改hosts文件"
+	
 	hosts_tmp=`cat /etc/hosts | grep node1`
 	if [[ ! $hosts_tmp =~ 'node1' ]];then
-	ip=$(ip addr |grep inet |grep -v inet6 |grep eth0|awk '{print $2}' |awk -F "/" '{print $1}');
+	  ip_tmp=`ip addr`
+	  if [[ $ip_tmp =~ 'eth0' ]];then
+	    ip=$(ip addr |grep inet |grep -v inet6 |grep eth0|awk '{print $2}' |awk -F "/" '{print $1}');
+	  elif [[ $ip_tmp =~ 'ens33' ]];then
+	    ip=$(ip addr |grep inet |grep -v inet6 |grep ens33|awk '{print $2}' |awk -F "/" '{print $1}');
+	  elif [[ $ip_tmp =~ 'ens32' ]];then
+	    ip=$(ip addr |grep inet |grep -v inet6 |grep ens32|awk '{print $2}' |awk -F "/" '{print $1}');
+	fi
 	echo $ip;
 	sed -i '$a\'"$ip"' node1' /etc/hosts;
 	else
