@@ -106,7 +106,7 @@ install_jdk() {
 	echo "开始下载jdk"
 	
 	if [[ ! -f /export/software/jdk-8u241-linux-x64.tar.gz ]]; then
-	wget --no-check-certificate -P /export/software http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/jdk-8u241-linux-x64.tar.gz
+	wget --no-check-certificate -P /export/software http://ra2ljkp3p.hn-bkt.clouddn.com/jdk-8u241-linux-x64.tar.gz
 	echo "下载jdk完成"
 	else
 	echo "jdk安装包已存在"
@@ -133,15 +133,15 @@ install_zookeeper() {
 	echo "开始安装zookeeper"
 	echo "开始下载zookeeper"
 	
-	if [[ ! -f /export/software/zookeeper-3.4.6.tar.gz ]]; then
-	wget --no-check-certificate -P /export/software http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/zookeeper-3.4.6.tar.gz
+	if [[ ! -f /export/software/apache-zookeeper-3.5.9-bin.tar.gz ]]; then
+	wget --no-check-certificate -P /export/software https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.5.9/apache-zookeeper-3.5.9-bin.tar.gz
 	echo "zookeeper下载完成"
 	else
 	echo "zookeeper安装包已存在"
 	fi
 	
-	tar zxf /export/software/zookeeper-3.4.6.tar.gz -C /export/server/
-	mv /export/server/zookeeper-3.4.6 /export/server/zookeeper
+	tar zxf /export/software/apache-zookeeper-3.5.9-bin.tar.gz -C /export/server/
+	mv /export/server/zookeeper-3.5.9-bin /export/server/zookeeper
 	mkdir -p /export/data/zkdata
 	cp /export/server/zookeeper/conf/zoo_sample.cfg /export/server/zookeeper/conf/zoo.cfg
 	sed -i 's|/tmp/zookeeper|/export/data/zkdata|g' /export/server/zookeeper/conf/zoo.cfg
@@ -162,8 +162,8 @@ install_hadoop() {
 	echo "开始安装hadoop"
 	echo "开始下载hadoop"
 	
-	if [[ ! -f /export/software/hadoop-3.3.0-Centos7-64-with-snappy.tar.gz ]]; then
-	wget --no-check-certificate -P /export/software http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/hadoop-3.3.0-Centos7-64-with-snappy.tar.gz
+	if [[ ! -f /export/software/hadoop-3.3.0.tar.gz ]]; then
+	wget --no-check-certificate -P /export/software https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
 	echo "hadoop下载完成"
 	else
 	echo "hadoop安装包已存在"
@@ -171,7 +171,7 @@ install_hadoop() {
 	
 	
 	echo "开始解压hadoop"
-	tar -zxf /export/software/hadoop-3.3.0-Centos7-64-with-snappy.tar.gz -C /export/server/
+	tar -zxf /export/software/hadoop-3.3.0.tar.gz -C /export/server/
 	echo "hadoop解压完成"
 	echo "开始修改配置文件"
 	sed -i '$a\export JAVA_HOME=/export/server/jdk1.8.0_241\n\export HDFS_NAMENODE_USER=root\n\export HDFS_DATANODE_USER=root\n\export HDFS_SECONDARYNAMENODE_USER=root\n\export YARN_RESOURCEMANAGER_USER=root\n\export YARN_NODEMANAGER_USER=root' /export/server/hadoop-3.3.0/etc/hadoop/hadoop-env.sh
@@ -210,7 +210,7 @@ install_mysql() {
 	echo "开始下载mysql"
 	
 	if [[ ! -f /export/software/mysql/mysql-5.7.29-1.el7.x86_64.rpm-bundle.tar ]]; then
-	wget --no-check-certificate -P /export/software/mysql http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/mysql-5.7.29-1.el7.x86_64.rpm-bundle.tar
+	wget --no-check-certificate -P /export/software/mysql https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.29-1.el7.x86_64.rpm-bundle.tar
 	echo "mysql下载完成"
 	else
 	echo "mysql安装包已存在"
@@ -251,7 +251,7 @@ EOF
 install_hive() {
 	echo "开始安装hive"
 	echo "开始下载hive"
-	wget --no-check-certificate -P /export/software/ http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/apache-hive-3.1.2-bin.tar.gz
+	wget --no-check-certificate -P /export/software/ https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
 	echo "下载完成"
 	echo "开始解压hive"
 	tar zxf /export/software/apache-hive-3.1.2-bin.tar.gz -C /export/server/
@@ -283,7 +283,7 @@ install_hive() {
 install_spark() {
   echo "开始安装spark"
 	echo "开始下载spark"
-	wget --no-check-certificate -P /export/software/ http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/spark-3.1.2-bin-hadoop3.2.tgz
+	wget --no-check-certificate -P /export/software/ https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
 	echo "下载完成"
 	echo "开始解压spark"
 	tar zxf /export/software/spark-3.1.2-bin-hadoop3.2.tgz -C /export/server/
@@ -324,15 +324,15 @@ install_sqoop() {
 	echo "开始安装sqoop"
 	echo "开始下载sqoop"
 
-	if [[ ! -f /export/software/sqoop-1.4.7.bin_hadoop-2.6.0.tar.gz ]]; then
-	wget --no-check-certificate -P /export/software http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/sqoop-1.4.7.bin_hadoop-2.6.0.tar.gz
+	if [[ ! -f /export/software/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz ]]; then
+	wget --no-check-certificate -P /export/software http://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
 	echo "下载sqoop完成"
 	else
 	echo "sqoop安装包已存在"
 	fi
 	
 	echo "开始解压sqoop"
-	tar zxf /export/software/sqoop-1.4.7.bin_hadoop-2.6.0.tar.gz -C /export/server
+	tar zxf /export/software/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz -C /export/server
 	mv /export/server/sqoop-1.4.7.bin__hadoop-2.6.0 /export/server/sqoop
 	echo "解压sqoop完成"
 	echo "开始添加sqoop环境变量"
