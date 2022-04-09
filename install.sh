@@ -301,7 +301,7 @@ install_spark() {
   /export/server/hadoop-3.3.0/bin/hadoop fs -put /export/server/spark/jars/* /spark/jars/
   /export/server/hadoop-3.3.0/bin/hadoop fs -mkdir -p /sparklog
   echo "开始下载anaconda3"
-  wget --no-check-certificate -P /export/software/ http://myfilehadoop.sgp1.cdn.digitaloceanspaces.com/Anaconda3-2021.05-Linux-x86_64.sh
+  wget --no-check-certificate -P /export/software/ https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.05-Linux-x86_64.sh
   echo "开始安装anaconda3"
   sh /export/software/Anaconda3-2021.05-Linux-x86_64.sh -b
   echo "开始添加环境变量"
