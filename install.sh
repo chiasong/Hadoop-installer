@@ -106,7 +106,7 @@ install_jdk() {
 	echo "开始下载jdk"
 	
 	if [[ ! -f /export/software/jdk-8u241-linux-x64.tar.gz ]]; then
-	wget --no-check-certificate -P /export/software http://ra2ljkp3p.hn-bkt.clouddn.com/jdk-8u241-linux-x64.tar.gz
+	wget --no-check-certificate -P /export/software http://1.12.250.23/apps/jdk-8u241-linux-x64.tar.gz
 	echo "下载jdk完成"
 	else
 	echo "jdk安装包已存在"
@@ -180,11 +180,11 @@ install_hadoop() {
 	mv /export/server/hadoop-3.3.0/etc/hadoop/mapred-site.xml /export/server/hadoop-3.3.0/etc/hadoop/mapred-site.xml.bak
 	mv /export/server/hadoop-3.3.0/etc/hadoop/yarn-site.xml /export/server/hadoop-3.3.0/etc/hadoop/yarn-site.xml.bak
 	mv /export/server/hadoop-3.3.0/etc/hadoop/workers /export/server/hadoop-3.3.0/etc/hadoop/workers.bak
-	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://suhang.work/hadoop_etc/core-site.xml
-	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://suhang.work/hadoop_etc/hdfs-site.xml
-	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://suhang.work/hadoop_etc/mapred-site.xml
-	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://suhang.work/hadoop_etc/yarn-site.xml
-	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://suhang.work/hadoop_etc/workers
+	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://1.12.250.23/hadoop_etc/core-site.xml
+	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://1.12.250.23/hadoop_etc/hdfs-site.xml
+	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://1.12.250.23/hadoop_etc/mapred-site.xml
+	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://1.12.250.23/hadoop_etc/yarn-site.xml
+	wget -P /export/server/hadoop-3.3.0/etc/hadoop/ http://1.12.250.23/hadoop_etc/workers
 	echo "hadoop修改配置文件完成"
 	echo "开始添加环境变量"
 	sed -i '$a\export HADOOP_HOME=/export/server/hadoop-3.3.0\n\export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' /etc/profile
@@ -259,9 +259,9 @@ install_hive() {
 	rm -rf /export/server/hive-3.1.2/lib/guava-19.0.jar
 	cp /export/server/hadoop-3.3.0/share/hadoop/common/lib/guava-27.0-jre.jar /export/server/hive-3.1.2/lib
 	ll lib | grep guava
-	wget -P /export/server/hive-3.1.2/conf http://suhang.work/hadoop_etc/hive-env.sh
-	wget -P /export/server/hive-3.1.2/conf http://suhang.work/hadoop_etc/hive-site.xml
-	wget -P /export/server/hive-3.1.2/lib http://suhang.work/hadoop_etc/mysql-connector-java-5.1.32.jar
+	wget -P /export/server/hive-3.1.2/conf http://1.12.250.23/hadoop_etc/hive-env.sh
+	wget -P /export/server/hive-3.1.2/conf http://1.12.250.23/hadoop_etc/hive-site.xml
+	wget -P /export/server/hive-3.1.2/lib http://1.12.250.23/hadoop_etc/mysql-connector-java-5.1.32.jar
 	echo "开始初始化hive"
 	/export/server/hive-3.1.2/bin/schematool -initSchema -dbType mysql -verbos
 	/export/server/hadoop-3.3.0/bin/hadoop fs -mkdir /tmp
@@ -293,9 +293,9 @@ install_spark() {
 	cp /export/server/spark/conf/spark-defaults.conf.template /export/server/spark/conf/spark-defaults.conf
 	sed -i '$a\HADOOP_CONF_DIR=/export/server/hadoop/etc/hadoop\n\YARN_CONF_DIR=/export/server/hadoop/etc/hadoop' /export/server/spark/conf/spark-env.sh
 	sed -i '$a\spark.eventLog.enabled true\n\spark.eventLog.dir hdfs://node1:8020/sparklog/\n\spark.eventLog.compress true\n\spark.yarn.historyServer.address node1:18080\n\spark.yarn.jars  hdfs://node1:8020/spark/jars/*' /export/server/spark/conf/spark-defaults.conf
-  wget -P /export/server/spark/conf http://suhang.work/hadoop_etc/log4j.properties
-  wget -P /export/server/spark/jars http://suhang.work/hadoop_etc/mysql-connector-java-5.1.32.jar
-  wget -P /export/server/spark/conf http://suhang.work/hadoop_etc/hive-site.xml
+  wget -P /export/server/spark/conf http://1.12.250.23/hadoop_etc/log4j.properties
+  wget -P /export/server/spark/jars http://1.12.250.23/hadoop_etc/mysql-connector-java-5.1.32.jar
+  wget -P /export/server/spark/conf http://1.12.250.23/hadoop_etc/hive-site.xml
   echo "此处会卡一会儿，属于正常情况，请耐心等待"
   /export/server/hadoop-3.3.0/bin/hadoop fs -mkdir -p /spark/jars/
   /export/server/hadoop-3.3.0/bin/hadoop fs -put /export/server/spark/jars/* /spark/jars/
@@ -341,7 +341,7 @@ install_sqoop() {
 	mv /export/server/sqoop/conf/sqoop-env-template.sh /export/server/sqoop/conf/sqoop-env.sh
 	sed -i '$a\export HADOOP_COMMON_HOME= /export/server/hadoop-3.3.0\n\export HADOOP_MAPRED_HOME= /export/server/hadoop-3.3.0\n\export HIVE_HOME= /export/server/hive-3.1.2' /export/server/sqoop/conf/sqoop-env.sh
   cp /export/server/hive-3.1.2/lib/mysql-connector-java-5.1.32.jar /export/server/sqoop/lib/
-  wget -P /export/server/sqoop/lib http://suhang.work/hadoop_etc/commons-lang-2.6.jar
+  wget -P /export/server/sqoop/lib http://1.12.250.23/hadoop_etc/commons-lang-2.6.jar
 }
 
 install_finsh() {
@@ -379,10 +379,10 @@ install_finsh() {
 
 	echo "正在添加开机启动项"
 	mkdir /export/myhadoop
-	wget -P /export/myhadoop http://suhang.work/hadoop_etc/start.sh
-	wget -P /export/myhadoop http://suhang.work/hadoop_etc/stop.sh
-	wget -P /export/myhadoop http://suhang.work/hadoop_etc/restart.sh
-	wget -P /lib/systemd/system http://suhang.work/hadoop_etc/myhadoop.service
+	wget -P /export/myhadoop http://1.12.250.23/hadoop_etc/start.sh
+	wget -P /export/myhadoop http://1.12.250.23/hadoop_etc/stop.sh
+	wget -P /export/myhadoop http://1.12.250.23/hadoop_etc/restart.sh
+	wget -P /lib/systemd/system http://1.12.250.23/hadoop_etc/myhadoop.service
 	chmod +x /export/myhadoop/*
 	systemctl daemon-reload
 	systemctl enable myhadoop
